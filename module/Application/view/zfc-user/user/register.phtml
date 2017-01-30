@@ -1,0 +1,52 @@
+<?php
+    $this->headTitle('Registro');
+    $this->headLink()->prependStylesheet($this->basePath('/assets/css/pg_form_register.css'));
+
+    $form = $this->registerForm;
+    $form->prepare();
+?>
+<div class="row">
+    <div class="col-md-6 col-lg-offset-3">
+        <div class="pg_form_register">
+            <section>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1><?php echo $this->headTitle()->setSeparator(' / ')->renderTitle();?></h1>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+<?php echo $this->form()->openTag($form) . PHP_EOL; ?>
+
+    <div class="form-group">
+        <?php echo $this->formLabel($form->get('email')->setLabelAttributes(array('class' => 'control-label col-md-3'))); ?>
+        <div class="col-md-9">
+            <?php echo $this->formInput($form->get('email')->setAttributes(array('class' => 'form-control'))); ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php echo $this->formLabel($form->get('passwordVerify')->setLabelAttributes(array('class' => 'control-label col-md-3'))); ?>
+        <div class="col-md-9">
+            <?php echo $this->formInput($form->get('passwordVerify')->setAttributes(array('class' => 'form-control'))); ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php echo $this->formLabel($form->get('password')->setLabelAttributes(array('class' => 'control-label col-md-3'))); ?>
+        <div class="col-md-9">
+            <?php echo $this->formInput($form->get('password')->setAttributes(array('class' => 'form-control'))); ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-default pull-right">Registrar</button>
+        </div>
+    </div>
+<?php echo $this->form()->closeTag() . PHP_EOL; ?>
+            </section>
+        </div>
+    </div>
+</div>

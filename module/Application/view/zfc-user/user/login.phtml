@@ -1,0 +1,49 @@
+<?php
+    $this->headTitle('Login');
+    $this->headLink()->prependStylesheet($this->basePath('/assets/css/pg_form_login.css'));
+
+    $form = $this->loginForm;
+    $form->prepare();
+?>
+<div class="row">
+    <div class="col-md-4 col-lg-offset-4">
+        <div class="pg_form_login">
+            <section>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h1><?php echo $this->headTitle()->setSeparator(' / ')->renderTitle();?></h1>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+<?php echo $this->form()->openTag($form) . PHP_EOL; ?>
+<?php if ($this->redirect): ?>
+    <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+<?php endif ?>
+
+    <?php echo $this->formLabel($form->get('identity')->setLabelAttributes(array('class' => 'sr-only'))); ?>
+    <?php echo $this->formInput($form->get('identity')->setAttributes(array('class' => 'form-control', 'placeholder' => 'E-mail'))); ?>
+
+    <?php echo $this->formLabel($form->get('credential')->setLabelAttributes(array('class' => 'sr-only'))); ?>
+    <?php echo $this->formInput($form->get('credential')->setAttributes(array('class' => 'form-control', 'placeholder' => 'Password'))); ?>
+
+    <?php echo $this->formButton($form->get('submit')->setAttributes(array('class' => 'btn btn-default btn-block'))); ?>
+
+<?php echo $this->form()->closeTag() . PHP_EOL; ?>
+            </section>
+
+<?php if ($this->enableRegistration) : ?>
+            <section class="not_register">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>
+                            Não registrado? <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->escapeUrl($this->redirect) : '') ?>">Registre-se agora</a>
+                        </p>
+                    </div>
+                </div>
+            </section>
+<?php endif; ?>
+        </div>
+    </div>
+</div>

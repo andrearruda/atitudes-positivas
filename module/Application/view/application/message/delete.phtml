@@ -1,0 +1,74 @@
+<?php
+    $this->headTitle('Mensagens')->append('Deletar');
+?>
+<script>
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+
+    $('.bt_modal_action_delete').click(function(){
+        var bt = $(this);
+        var url = $(this).attr('data-url');
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            dataType: 'text',
+            success: function(data){
+                $('#myModal').modal('toggle');
+                location.reload();
+            },
+            beforeSend: function(){
+                bt.attr('disabled', true);
+            },
+            complete: function(){
+                bt.removeAttr('disabled');
+            }
+        });
+    });
+});
+</script>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><?php echo $this->headTitle()->setSeparator(' / ')->renderTitle();?></h4>
+            </div>
+            <div class="modal-body">
+                <h2><?php echo $entity->getStaff()->getName();?></h2>
+                <div class="info">
+                    <span class="departament"><?php echo $entity->getStaff()->getDepartament();?> / <?php echo $entity->getStaff()->getUnit()->getName();?></span> <br />
+                    <span class="email"><?php echo $entity->getStaff()->getEmail();?></span>
+                </div>
+
+                <hr size="1">
+
+                <div class="info">
+                    <span class="date">Criado em: <span><?php echo $this->dateFormat($entity->getCreatedAt(),  IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT, 'pt_BR');?></span></span> <br />
+                    <span class="date">Atualizado em: <span><?php echo $this->dateFormat($entity->getUpdatedAt(),  IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT, 'pt_BR');?></span></span>
+                </div>
+
+                <hr size="1">
+
+                <p>
+                    <?php echo $entity->getDescription() . PHP_EOL;?>
+                </p>
+
+                <hr size="1">
+
+                <p>
+                    <img src="<?php echo $this->basePath('upload/images/middle/' . $entity->getImage());?>" class="center-block img-responsive" />
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger bt_modal_action_delete" data-url="<?php echo $this->url('message/default', array('action' => 'delete', 'id' => $entity->getId()));?>" data-toggle="tooltip" title="Cuidado! Ao excluir não será possivel recuperar.">Deletar</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>

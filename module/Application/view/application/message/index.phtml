@@ -1,0 +1,79 @@
+<?php
+    $this->headTitle('Mensagens');
+    $this->headLink()->appendStylesheet($this->basePath('/assets/css/pg_message.css'));
+    $this->headScript()->prependFile($this->basePath('/assets/js/pg_message.js'));
+
+    $this->headLink()->prependStylesheet($this->basePath('/assets/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css'));
+    $this->headScript()->prependFile($this->basePath('/assets/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js'));
+?>
+<div class="pg_common pg_message">
+    <div id="load_modal"></div>
+
+    <section>
+
+<!-- TITLE -->
+<?php echo $this->partial('partials/layout/title.phtml', array('title' => $this->headTitle()->setSeparator(' / ')->renderTitle())); ?>
+<!-- TITLE -->
+
+    </section>
+
+    <section class="list_table">
+
+<?php
+    if(count($this->data) > 0):
+?>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th width="80">Ativo</th>
+                        <th width="100">Unidade</th>
+                        <th width="250">Departamento</th>
+                        <th>Nome</th>
+                        <th width="40">#</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+<?php foreach($this->data as $entity):?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="active" data-size="mini" data-url="<?php echo $this->url('message/default', array('action' => 'active', 'id' => $entity->getId()));?>" value="<?php echo $entity->getId();?>"<?php if($entity->getActive() == '1'){ echo ' checked="checked"'; }?>>
+                            </td>
+                            <td><?php echo $entity->getStaff()->getUnit()->getInitials(); ?></td>
+                            <td><?php echo $entity->getStaff()->getDepartament();?></td>
+                            <td><?php echo $entity->getStaff()->getName();?></td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="caret"></i>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="#" class="bt_modal_action" data-url="<?php echo $this->url('message/default', array('action' => 'show', 'id' => $entity->getId()));?>"><i class="glyphicon glyphicon-zoom-in"></i> Exibir</a></li>
+                                        <li role="separator" class="divider"></li>
+<!--                                        <li><a href="#" class="bt_modal_action" data-url="<?php /*echo $this->url('message/default', array('action' => 'edit', 'id' => $entity->getId()));*/?>"><i class="glyphicon glyphicon-edit"></i> Editar</a></li>-->
+                                        <li><a href="<?php echo $this->url('message/default', array('action' => 'edit', 'id' => $entity->getId()));?>"  ><i class="glyphicon glyphicon-edit"></i> Editar</a></li>
+                                        <li><a href="#" class="bt_modal_action" data-url="<?php echo $this->url('message/default', array('action' => 'delete', 'id' => $entity->getId()));?>"><i class="glyphicon glyphicon-remove"></i> Deletar</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+<?php endforeach;?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <?php echo $this->paginationControl($this->data, 'Sliding', 'partials/layout/paginator');?>
+            </div>
+        </div>
+
+<?php
+    else:
+        echo $this->partial('partials/layout/no_records.phtml');
+    endif;
+?>
+    </section>
+</div>

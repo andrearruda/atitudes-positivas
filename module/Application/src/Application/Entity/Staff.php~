@@ -1,0 +1,78 @@
+<?php
+
+namespace Application\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Staff
+ *
+ * @ORM\Table(name="staff", indexes={@ORM\Index(name="fk_staff_unit1_idx", columns={"unit_id"})})
+ * @ORM\Entity
+ */
+class Staff
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=25, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="departament", type="string", length=40, nullable=false)
+     */
+    private $departament;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="updated_at", type="datetime", nullable=false)
+     */
+    private $updatedAt;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
+     */
+    private $deletedAt;
+
+    /**
+     * @var \Application\Entity\Unit
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Entity\Unit")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
+     * })
+     */
+    private $unit;
+
+
+}
+

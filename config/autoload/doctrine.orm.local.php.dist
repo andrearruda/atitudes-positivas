@@ -1,0 +1,21 @@
+<?php
+return array(
+    'doctrine' => array(
+        'connection' => array(
+            // default connection name
+            'orm_default' => array(
+                'driverClass' => 'Doctrine\DBAL\Driver\PDOMySql\Driver',
+                'params' => array(
+                    'host'     => '',
+                    'port'     => '',
+                    'user'     => '',
+                    'password' => '',
+                    'dbname'   => '',
+                    'driverOptions' => array(
+                        1002 => 'SET NAMES utf8'
+                    )
+                )
+            )
+        )
+    ),
+);

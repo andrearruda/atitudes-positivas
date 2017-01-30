@@ -1,0 +1,101 @@
+*{
+    border-radius: 0px !important;
+}
+
+.container header{
+    margin: 50px 0px;
+}
+
+.container footer{
+    margin: 50px 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 12px;
+    color: #999999;
+
+    border-top: dotted 1px #cccccc;
+    padding-top: 50px;
+    display: block;
+}
+
+.container section{
+    color: #999999;
+}
+
+
+.container section h1, .container section h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    color: #df1828;
+    margin: 0px;
+}
+
+.container section h2{
+    font-size: 20px;
+    text-transform: uppercase;
+
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.container section p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+.container section form{
+    margin-top: 50px;
+}
+
+.container section form fieldset{
+    margin-top: 25px;
+}
+
+
+.container section form fieldset legend{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #df1828;
+    border-bottom: 1px dotted #cccccc;
+}
+
+.container section form .form-group label.control-label{
+    font-weight: 100;
+    font-size: 12px;
+}
+
+.container section form .has-error{
+    background: rgba(255, 0, 0, .1);
+}
+
+.container section form .has-error label{
+    color: #999999;
+}
+
+.container section form .has-error{
+    padding: 10px 0px;
+}
+
+.container section form .has-error .help-inline{
+    color: rgba(0, 0, 0, .5);
+    font-size: 12px;
+}
+
+.container section .pg_common #title h1{
+    display: inline;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.container section #load_modal .modal-header h4.modal-title{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.container section #load_modal .modal-body{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}

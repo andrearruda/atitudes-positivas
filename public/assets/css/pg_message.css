@@ -1,0 +1,26 @@
+.pg_message .list_table{
+    margin-top: 25px;
+}
+
+.container section #load_modal .modal-body h2{
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: #666666;
+}
+
+.container section #load_modal .modal-body .info span{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.container section #load_modal .modal-body .info .email{
+    text-transform: lowercase;
+}
+
+.container section #load_modal .modal-body .info .date{
+    font-size: 12px;
+    font-weight: 500;
+}

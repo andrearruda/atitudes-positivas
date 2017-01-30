@@ -1,0 +1,19 @@
+<?php
+    $this->headTitle('Login');
+
+    $form = $this->loginForm;
+    $form->prepare();
+?>
+<div class="row">
+    <div class="col-md-6 col-lg-offset-3">
+<?php echo $this->form()->openTag($form) . PHP_EOL; ?>
+<?php
+foreach($form->getElements() as $element):
+?>
+<?php echo $this->formRow($element) . PHP_EOL;?>
+<?php
+endforeach;
+?>
+<?php echo $this->form()->closeTag() . PHP_EOL; ?>
+    </div>
+</div>

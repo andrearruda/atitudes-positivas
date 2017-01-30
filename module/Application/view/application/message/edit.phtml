@@ -1,0 +1,65 @@
+<?php
+    $this->headTitle('Mensagens')->append('Editar');
+
+    $form = $this->form;
+    $form->prepare();
+?>
+<script>
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+<div class="pg_common pg_message">
+    <section>
+
+        <!-- TITLE -->
+        <?php echo $this->partial('partials/layout/title.phtml', array('title' => $this->headTitle()->setSeparator(' / ')->renderTitle())); ?>
+        <!-- TITLE -->
+
+    </section>
+
+    <section>
+            <?php echo $this->form()->openTag($form) . PHP_EOL; ?>
+<?php
+    foreach($form->getElements() as $element):
+?>
+<?php echo $this->formRow($element) . PHP_EOL;?>
+<?php
+    endforeach;
+?>
+<?php
+    foreach($form->getFieldsets() as $fieldset):
+?>
+                <fieldset>
+                    <legend><?php echo $fieldset->getLabel();?></legend>
+<?php
+        foreach($fieldset->getElements() as $element):
+?>
+                    <div class="form-group<?php if($this->formElementErrors($element)):?> has-error<?php endif;?>">
+                        <?php echo $this->formLabel($element) . PHP_EOL; ?>
+                        <div class="col-<?php echo $element->getOptions()['column-size'];?>">
+                            <?php echo $this->formElement($element) . PHP_EOL;?>
+                        </div><?php echo $this->formElementErrors()
+                                ->setMessageOpenFormat('<div class="col-md-9 col-md-offset-3"><div class="help-inline">')
+                                ->setMessageSeparatorString('</div><div class="help-inline">')
+                                ->setMessageCloseString('</div></div>')
+                                ->render($element) . PHP_EOL; ?>
+                    </div>
+<?php
+        endforeach;
+?>
+                </fieldset>
+<?php
+    endforeach;
+?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" data-toggle="tooltip" title="Ao editar não será possivel recuperar as informações antigas.">Editar</button>
+                            <a href="<?php echo $this->url('message/default');?>" class="btn btn-default">Fechar</a>
+                        </div>
+                    </div>
+                </div>
+            <?php echo $this->form()->closeTag() . PHP_EOL; ?>
+    </section>
+</div>

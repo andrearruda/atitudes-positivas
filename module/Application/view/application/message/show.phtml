@@ -1,0 +1,47 @@
+<?php
+    $this->headTitle('Mensagens')->append('Exibir');
+?>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><?php echo $this->headTitle()->setSeparator(' / ')->renderTitle();?></h4>
+            </div>
+            <div class="modal-body">
+                <h2><?php echo $entity->getStaff()->getName();?></h2>
+                <div class="info">
+                    <span class="departament"><?php echo $entity->getStaff()->getDepartament();?> / <?php echo $entity->getStaff()->getUnit()->getName();?></span> <br />
+                    <span class="email"><?php echo $entity->getStaff()->getEmail();?></span>
+                </div>
+
+                <hr size="1">
+
+                <div class="info">
+                    <span class="date">Criado em: <span><?php echo $this->dateFormat($entity->getCreatedAt(),  IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT, 'pt_BR');?></span></span> <br />
+                    <span class="date">Atualizado em: <span><?php echo $this->dateFormat($entity->getUpdatedAt(),  IntlDateFormatter::MEDIUM, IntlDateFormatter::SHORT, 'pt_BR');?></span></span>
+                </div>
+
+                <hr size="1">
+
+                <p>
+                    <?php echo $entity->getDescription() . PHP_EOL;?>
+                </p>
+
+                <hr size="1">
+
+                <p>
+                    <img src="<?php echo $this->basePath('upload/images/middle/' . $entity->getImage());?>" class="center-block img-responsive" />
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
