@@ -75,6 +75,8 @@ class MessageService
         $this->entity_manager->flush();
 
         $data_message = array(
+            'name' => $data['fieldset_to']['name'],
+            'departament' => $data['fieldset_to']['departament'],
             'staff' => $staff->getId(),
             'description' => $data['fieldset_message']['description'],
             'image' => $pathinfo['basename']

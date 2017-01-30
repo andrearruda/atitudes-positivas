@@ -18,7 +18,7 @@ class MessageForm extends Form
         ));
 
         $fieldset_staff = new StaffFieldset($entityManager);
-        $fieldset_staff->setLabel('Seus Dados');
+        $fieldset_staff->setLabel('De');
         $fieldset_staff->setName('fieldset_staff');
         $this->add($fieldset_staff);
 

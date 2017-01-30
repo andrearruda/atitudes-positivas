@@ -62,6 +62,10 @@ class MessageController extends AbstractActionController
                 'email' => $entity->getStaff()->getEmail(),
                 'departament' => $entity->getStaff()->getDepartament()
             ),
+            'fieldset_to' => array(
+                'name' => $entity->getName(),
+                'departament' => $entity->getDepartament()
+            ),
             'fieldset_message' => array(
                 'description' => $entity->getDescription(),
             )
@@ -170,28 +174,28 @@ class MessageController extends AbstractActionController
 
         $data = array();
 
+
+        /** @var \Application\Entity\Message $message */
         foreach($messages as $key => $message)
         {
-            $data[$key] = $hydrator->extract($message);
-            $data[$key]['staff'] = $hydrator->extract($message->getStaff());
-            $data[$key]['staff']['unit'] = $hydrator->extract($message->getStaff()->getUnit());
-
-            $data[$key]['image'] = 'http://' . $this->getRequest()->getServer('HTTP_HOST') . '/upload/images/middle/' . $data[$key]['image'];
-
-            unset(
-                $data[$key]['id'],
-                $data[$key]['createdAt'], $data[$key]['updatedAt'], $data[$key]['deletedAt'],
-                $data[$key]['active']
-            );
-
-            unset(
-                $data[$key]['staff']['id'],
-                $data[$key]['staff']['createdAt'], $data[$key]['staff']['updatedAt'], $data[$key]['staff']['deletedAt']
-            );
-
-            unset(
-                $data[$key]['staff']['unit']['id'],
-                $data[$key]['staff']['unit']['createdAt'], $data[$key]['staff']['unit']['updatedAt'], $data[$key]['staff']['unit']['deletedAt']
+            $data[$key] = array(
+                'from' => array(
+                    'name' => $message->getStaff()->getName(),
+                    'departament' => $message->getStaff()->getDepartament(),
+                    'email' => $message->getStaff()->getEmail(),
+                    'unit' => array(
+                        'name' => $message->getStaff()->getUnit()->getName(),
+                        'initials' => $message->getStaff()->getUnit()->getInitials()
+                    )
+                ),
+                'to' => array(
+                    'name' => $message->getName(),
+                    'departament' => $message->getDepartament(),
+                ),
+                'message' => array(
+                    'description' => $message->getDescription(),
+                    'image' => 'http://' . $this->getRequest()->getServer('HTTP_HOST') . '/upload/images/middle/' . $message->getImage()
+                )
             );
         }
 

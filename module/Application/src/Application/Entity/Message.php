@@ -5,7 +5,6 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
-
 /**
  * Message
  *
@@ -23,6 +22,20 @@ class Message
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=25, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="departament", type="string", length=40, nullable=false)
+     */
+    private $departament;
 
     /**
      * @var string
@@ -88,6 +101,54 @@ class Message
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Message
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set departament
+     *
+     * @param string $departament
+     *
+     * @return Message
+     */
+    public function setDepartament($departament)
+    {
+        $this->departament = $departament;
+
+        return $this;
+    }
+
+    /**
+     * Get departament
+     *
+     * @return string
+     */
+    public function getDepartament()
+    {
+        return $this->departament;
     }
 
     /**

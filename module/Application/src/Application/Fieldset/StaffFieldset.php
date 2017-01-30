@@ -115,10 +115,10 @@ class StaffFieldset extends Fieldset implements InputFilterProviderInterface
         ));
 
         $this->add(array(
-            'name' => 'email',
-            'type' => 'Zend\Form\Element\Email',
+            'name' => 'departament',
+            'type' => 'Zend\Form\Element\Text',
             'options' => array(
-                'label' => 'E-mail',
+                'label' => 'Departamento',
                 'label_attributes' => array (
                     'class' => 'control-label col-md-3',
                 ),
@@ -131,10 +131,10 @@ class StaffFieldset extends Fieldset implements InputFilterProviderInterface
         ));
 
         $this->add(array(
-            'name' => 'departament',
-            'type' => 'Zend\Form\Element\Text',
+            'name' => 'email',
+            'type' => 'Zend\Form\Element\Email',
             'options' => array(
-                'label' => 'Departamento',
+                'label' => 'E-mail',
                 'label_attributes' => array (
                     'class' => 'control-label col-md-3',
                 ),
