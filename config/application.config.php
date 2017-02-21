@@ -8,12 +8,12 @@
 return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
-//        'ZendDeveloperTools',
+        'ZendDeveloperTools',
         'DoctrineModule',
         'DoctrineORMModule',
         'TwbBundle',
         'ZfcBase', 'ZfcUser', 'ZfcUserDoctrineORM',
-//        'BjyAuthorize',
+        'BjyAuthorize',
         'SamUser',
         'Application',
     ),
