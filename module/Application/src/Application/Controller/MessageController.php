@@ -9,8 +9,6 @@ use Zend\Paginator\Adapter\ArrayAdapter;
 use Zend\View\Model\ViewModel;
 use Zend\View\Model\JsonModel;
 use DoctrineModule\Stdlib\Hydrator\DoctrineObject as DoctrineHydrator;
-use Thapp\XmlBuilder\XMLBuilder;
-use Thapp\XmlBuilder\Normalizer;
 
 class MessageController extends AbstractActionController
 {
@@ -174,7 +172,6 @@ class MessageController extends AbstractActionController
 
         $data = array();
 
-
         /** @var \Application\Entity\Message $message */
         foreach($messages as $key => $message)
         {
@@ -199,21 +196,30 @@ class MessageController extends AbstractActionController
             );
         }
 
-        $xmlBuilder = new XmlBuilder('root');
-        $xmlBuilder->setSingularizer(function ($name) {
-            if ('matches' === $name) {
-                return 'match';
-            }
-            if ('teams' === $name) {
-                return 'team';
-            }
-            if ('keys' === $name) {
-                return 'key';
-            }
-            return $name;
-        });
-        $xmlBuilder->load($data);
-        $xml_output = $xmlBuilder->createXML(true);
+        $xml = new \SimpleXMLElement('<root/>');
+        foreach($data as $message)
+        {
+            $item = $xml->addChild('item');
+
+            $from = $item->addChild('from');
+            $from->addChild('name', $message['from']['name']);
+            $from->addChild('departament', $message['from']['departament']);
+            $from->addChild('email', $message['from']['email']);
+
+            $unit = $from->addChild('unit');
+            $unit->addChild('name', $message['from']['unit']['name']);
+            $unit->addChild('initials', $message['from']['unit']['initials']);
+
+            $to = $item->addChild('to');
+            $to->addChild('name', $message['to']['name']);
+            $to->addChild('departament', $message['to']['departament']);
+
+            $description = $item->addChild('message');
+            $description->addChild('description', $message['message']['description']);
+            $description->addChild('image', $message['message']['image']);
+        }
+
+        $xml_output = $xml->asXML();
 
         $response = $this->getResponse();
         $response->getHeaders()->addHeaderLine('Content-Type', 'text/xml; charset=utf-8');

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "340063a2a98aa41cadd5bf0863985c1d",
-    "content-hash": "03bdedd65a9772fd576d0bcb183a7d73",
+    "hash": "c388aada08e84172b9b398b47a008a23",
+    "content-hash": "54716597897d9125893da837704288cd",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -2695,51 +2695,6 @@
             "time": "2017-05-28 10:56:20"
         },
         {
-            "name": "thapp/xmlbuilder",
-            "version": "v0.1.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/iwyg/xmlbuilder.git",
-                "reference": "6b69b02d0634ac6182c12f47de18c2703b05c449"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/iwyg/xmlbuilder/zipball/6b69b02d0634ac6182c12f47de18c2703b05c449",
-                "reference": "6b69b02d0634ac6182c12f47de18c2703b05c449",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.7"
-            },
-            "require-dev": {
-                "mockery/mockery": "dev-master"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Thapp": "src/"
-                },
-                "classmap": [
-                    "tests/"
-                ],
-                "files": [
-                    "src/includes/helper.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "iwyg",
-                    "email": "mail@thomas-appel.com"
-                }
-            ],
-            "description": "Xmlbuilder utilitity",
-            "time": "2013-10-15 17:50:56"
-        },
-        {
             "name": "webmozart/assert",
             "version": "1.2.0",
             "source": {
@@ -3345,83 +3300,6 @@
                 "zf2"
             ],
             "time": "2015-06-03 14:05:35"
-        },
-        {
-            "name": "zendframework/zend-developer-tools",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/zendframework/ZendDeveloperTools.git",
-                "reference": "6c4854eed280ff46d43f2f3ed609d1d7c2ed3ee2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/ZendDeveloperTools/zipball/6c4854eed280ff46d43f2f3ed609d1d7c2ed3ee2",
-                "reference": "6c4854eed280ff46d43f2f3ed609d1d7c2ed3ee2",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.6 || ^7.0",
-                "zendframework/zend-debug": "^2.5 || ^3.0",
-                "zendframework/zend-eventmanager": "^2.6.2 || ^3.0",
-                "zendframework/zend-modulemanager": "^2.7",
-                "zendframework/zend-mvc": "^2.7 || ^3.0.1",
-                "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
-                "zendframework/zend-stdlib": "^2.7 || ^3.0",
-                "zendframework/zend-view": "^2.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.0",
-                "squizlabs/php_codesniffer": "~2.3.1"
-            },
-            "suggest": {
-                "aist/aist-git-tools": "Show you informations about current GIT repository",
-                "bjyoungblood/bjy-profiler": "Version: dev-master, allows the usage of the (Zend) Db collector.",
-                "doctrine/doctrine-orm-module": "Profile DoctrineORM queries",
-                "jhuet/zdt-logger-module": "Show you log data from Zend\\Log",
-                "ocramius/ocra-service-manager": "OcraServiceManager can help you track dependencies within your application.",
-                "san/san-session-toolbar": "SanSessionToolbar can help you see current Zend\\Session data you're using within your application.",
-                "snapshotpl/zf-snap-event-debugger": "ZfSnapEventDebugger can help you debug events from Zend\\EventManager"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1-dev",
-                    "dev-develop": "1.2-dev"
-                },
-                "zf": {
-                    "module": "ZendDeveloperTools"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "ZendDeveloperTools\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Evan Coury",
-                    "email": "me@evancoury.com",
-                    "homepage": "http://blog.evan.pro/"
-                },
-                {
-                    "name": "Eric Boh",
-                    "email": "cossish@gmail.com"
-                }
-            ],
-            "description": "Module for developer and debug tools for use with zend-mvc applications.",
-            "homepage": "https://github.com/zendframework/ZendDeveloperTools",
-            "keywords": [
-                "debug",
-                "developer",
-                "module",
-                "zf2"
-            ],
-            "time": "2016-09-08 13:55:36"
         },
         {
             "name": "zendframework/zend-di",
@@ -6162,7 +6040,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "zendframework/zend-developer-tools": 20,
         "neilime/zf2-twb-bundle": 0,
         "manuakasam/sam-user": 20
     },
