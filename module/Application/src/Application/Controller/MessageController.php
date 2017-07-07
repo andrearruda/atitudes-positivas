@@ -85,6 +85,10 @@ class MessageController extends AbstractActionController
                     'email' => $this->getRequest()->getPost('fieldset_staff')['email'],
                     'departament' => $this->getRequest()->getPost('fieldset_staff')['departament'],
                 ),
+                'fieldset_to' => array(
+                    'name' => $this->getRequest()->getPost('fieldset_to')['name'],
+                    'departament' => $this->getRequest()->getPost('fieldset_to')['departament'],
+                ),
                 'fieldset_message' => array(
                     'description' => $this->getRequest()->getPost('fieldset_message')['description'],
                     'image' => $this->getRequest()->getFiles('fieldset_message')['image'],
