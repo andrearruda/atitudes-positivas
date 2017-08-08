@@ -100,16 +100,21 @@ class MessageService
         );
 
         $data_message = array(
+            'name' => $data['fieldset_to']['name'],
+            'departament' => $data['fieldset_to']['departament'],
             'description' => $data['fieldset_message']['description'],
         );
 
         $repository_message = $this->entity_manager->getRepository('Application\Entity\Message');
 
+        /** @var \Application\Entity\Message $message */
         $message = $repository_message->findOneById($id);
         $message->getStaff()->setName($data_staff['name']);
         $message->getStaff()->setEmail($data_staff['email']);
         $message->getStaff()->setDepartament($data_staff['departament']);
         $message->getStaff()->setUnit($this->entity_manager->getRepository('Application\Entity\Unit')->findOneById($data_staff['unit']));
+        $message->setName($data_message['name']);
+        $message->setDepartament($data_message['departament']);
         $message->setDescription($data_message['description']);
 
         $this->entity_manager->persist($message);
